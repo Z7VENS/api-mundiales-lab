@@ -20,34 +20,16 @@ Este repositorio contiene una API REST desarrollada con Node.js, Express y SQLit
 
 ## Pruebas de los Endpoints (usando xh)
 
-A continuación, la evidencia de consumo de la API:
 
-1. **Obtener todos los mundiales:**
-   `xh GET :4321/mundiales`
-   *(Devuelve lista parcial)*
+A continuación, se presentan las capturas de pantalla de cada endpoint funcional de la API REST:
 
-2. **Obtener mundiales con toda la información:**
-   `xh GET :4321/mundiales include==full`
-   *(Incluye campos de resumen y descripción)*
-
-3. **Buscar un mundial específico:**
-   `xh GET :4321/mundial/qatar-2022`
-   *(Devuelve el JSON del mundial con código 200)*
-
-4. **Validar recurso inexistente (404 Not Found):**
-   `xh GET :4321/mundial/inexistente`
-   *(Devuelve `{"error": "Not Found", "message": "Mundial no encontrado."}`)*
-
-5. **Buscar slugs por país campeón:**
-   `xh GET :4321/campeon/Argentina`
-   *(Devuelve `["qatar-2022"]`)*
-
-6. **Obtener un mundial al azar:**
-   `xh GET :4321/random`
-
-7. **Búsqueda por texto (ej. "final"):**
-   `xh GET :4321/search/final`
-
-8. **Validación de error (400 Bad Request) con Zod:**
-   `xh GET :4321/search/ab`
-   *(Falla porque requiere mínimo 3 caracteres, devuelve JSON con error 400)*
+| Endpoint | Descripción | Captura |
+| :--- | :--- | :--- |
+| `GET /mundiales` | Listado estándar | ![Listado](docs/captura1.png) |
+| `GET /mundiales?include=full` | Listado completo | ![Listado Full](docs/captura2.png) |
+| `GET /mundial/qatar-2022` | Consulta por slug | ![Consulta](docs/captura3.png) |
+| `GET /mundial/inexistente` | Manejo de error 404 | ![Error 404](docs/captura4.png) |
+| `GET /campeon/Argentina` | Filtro por campeón | ![Filtro](docs/captura5.png) |
+| `GET /random` | Mundial al azar | ![Random](docs/captura6.png) |
+| `GET /search/final` | Búsqueda por texto | ![Búsqueda](docs/captura7.png) |
+| `GET /search/ab` | Validación Zod (400) | ![Error 400](docs/captura8.png) |
